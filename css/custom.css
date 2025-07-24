@@ -1,0 +1,37 @@
+.home-bodyContainer{
+    margin-top: 30px; 
+    padding:2%;
+    min-height:450px;
+    padding: 15px;
+    /* margin-bottom: 25px; */
+}
+
+.bodyContainer{
+    margin-top: 100px; 
+    padding:2%;
+    min-height:450px;
+    padding: 15px;
+    /* margin-bottom: 25px; */
+}
+
+.gallery-img {
+      object-fit: cover;
+      height: 200px;
+      width: 100%;
+      border-radius: 10px;
+    }
+.overlay-text {
+      position: absolute;
+       bottom: 80%;
+       right: 20%; 
+      transform: translate(-50%, -50%);
+      color: white;
+      text-shadow: 1px 1px 5px rgb(46, 43, 43);
+    }
+   .under-dev-img{
+    max-width: 40%;
+    height: auto;
+   } 
+
+
+   
