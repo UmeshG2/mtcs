@@ -1,10 +1,12 @@
 <?php
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+date_default_timezone_set("Asia/Kolkata");
+$submitted = false;  
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 // ~~~~~~~~~~~~~~~~~~~ For Mail ~~~~~~~~~~~~~~~~~~~
-$submitted = false;   // For model popup
+ // For model popup
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -17,8 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $phone   = $_POST['phone'];
   $email    = $_POST['email'];
   $message = $_POST['message'];
-
-  
 
   $emailSubject = "";
   $emailBody = "";
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->setFrom($email, $name); // Sender Mail
     $mail->addAddress('mantechconserv@gmail.com', 'MTCS');  // Receiver Mail
 
-    $emailSubject .= $name . '-' . ' Ganpati Bumper Offer' . '-' . date("d.m.Y H:i:s");
+    $emailSubject .= $name . ' - contact with you ' . ' - ' . date("d.m.Y H:i:s");
     $emailBody .= "<b>Name:</b> $name<br>";
     $emailBody .= "<b>Phone:</b> $phone<br>";
     $emailBody .= "<b>Email:</b> $email<br>";
@@ -49,15 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Body    = $emailBody;
 
     $mail->send();
-   // $submitted = true; // Trigger modal
+    // $submitted = true; // Trigger modal
     // echo 'Message has been sent';
   } catch (Exception $e) {
-    echo "Mailer Error: {$mail->ErrorInfo}";
+    logError($e->getMessage());
+    echo "<script>alert('Contact Mailer Error .'); window.history.back();</script>";
   }
 
   // ~~~~~~~~~~~~~~~~~~  To Save in Database ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  // include "db_config.php";
+  require_once 'includes/logger.php';
   include "includes/db_config.php";
 
   /* --- Using Normal Query  
@@ -74,59 +75,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 */
 
   //  Using the stored procedure call
+  try{
+
   $sql = $conn->prepare("CALL usp_contacts(?,?,?,?)");
   $sql->bind_param("sdss", $name, $phone, $email, $message);
-
-  if ($sql->execute()) {
-     $submitted = true;
-    // echo "<script>alert('Message sent successfully!'); 
-    // echo "<script> window.history.back(); </script>";
-  } else {
-    echo "<script>alert('Error saving message.'); window.history.back();</script>";
+  $sql->execute();
+  $submitted = true;
+  // if ($sql->execute()) {
+  //   $submitted = true;
+  //   // echo "<script>alert('Message sent successfully!'); 
+  //   // echo "<script> window.history.back(); </script>";
+  // }
+   }
+  catch (mysqli_sql_exception  $e) {
+    logError(" Contact Data Saving Error: " . $e->getMessage());
+    echo "<script>alert('Contact Data Saving Error !'); window.history.back();</script>";
   }
   $conn->close();
 }
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Manpower and technologies consultancy services">
   <title>Contact Us</title>
+  <?php include 'includes/analytics.php'; ?>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
   <?php include 'includes/header_navbar.html'; ?>
 
-  <div class="bodyContainer text-muted fs-5">
-    <h2>Contact Us</h2>
-    <div class="row">
-      <div class="col-sm-6">
-        <img src="images/Contact-us.png" alt="Office" class="img-fluid contact-img w-100">
-      </div>
-      <div class="col-md-6">
-        <div class="d-flex align-items-center vh-100 fs-4">
-          <!-- <h4>Manpower Technologies And Consultancy Services</h4> -->
-          <p>
-            <strong>Address:</strong><br>
-            123 Business Park, Sector 5,<br>
-            Navi Mumbai, Maharashtra 400705, India
-            <br />
-            <strong>Phone:</strong> +91 95455 19495<br>
-            <strong>Email:</strong> umesh@mantechconsultancy.com
-          </p>
+  <div class="bodyContainer text-muted fs-6">
 
-        </div>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-3 text-md-start mb-md-0 ">
+        <h1> Contact Us </h1>
+      </div>
+      <div class="col-12 col-md-9">
+        <img class="img-fluid" src="images/Banner-contact.jpg" alt="Contact Us">
       </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="widget widget-contact-form rounded-5 p-4" style="background-color: rgb(244, 246, 247 ); width: 75%;">
-        <div class="heading-layout4">
+
+    <div class="row my-4 py-4">
+      <div class="col-md-5 container-fluid center-container d-flex justify-content-center align-items-center">
+        <img src="images/contact_me.jpg" alt="Industries" class="img-fluid rounded">
+      </div>
+
+      <div class="col-md-7 px-5" style="background-color: rgb(244, 246, 247 );">
+        <div class="widget widget-contact-form rounded-5 p-4"">
+          <div class=" heading-layout4">
           <h4>Get in touch</h4>
         </div>
         <form class="contact-form-box" method="post" action="">
@@ -183,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!-- Submit -->
-            <div class="col-12 form-group">
+            <div class="col-12 form-group text-center">
               <button type="submit" name="submit" class="btn bg-blue btn-primary submit-now-btn-sec me-2">Send Message</button>
             </div>
           </div>
@@ -191,7 +198,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
         <!-- ✅ Bootstrap Modal -->
-        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <?php include 'includes/modal-popup.html'; ?>
+        <!-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header bg-success text-white">
@@ -206,8 +214,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
             </div>
           </div>
+        </div> -->
+        <!--  Show Modal + Redirect on Button Click -->
+      </div>
+    </div>
+
+    <div class="row my-5 py-4"  style="background-color: rgb(244, 246, 247 );">
+      <div class="col-md-5">
+        <div class=" px-5 fs-5">
+          <strong><i class="bi bi-geo-alt-fill"></i> Address</strong>
+          <p>A-102, Poonam Star, Near Ayyappa Temple, Virat Nagar, Virar West - 401303, Mumbai, Maharashtra, India
+          </p>
+          <strong><i class="bi bi-telephone-fill"></i> Phone</strong>
+          <p> (+91) 95455 19495</p>
+          <strong><i class="bi bi-whatsapp text-success me-2"></i>WhatsApp</strong>
+          <p><a href="https://wa.me/919545519495" target="_blank">(+91) 95455 19495</a></p>
+          <strong><i class="bi bi-envelope-fill"></i> Email</strong>
+          <p><a href="mailto:umesh@mantechconsultancy.com">umesh@mantechconsultancy.com</a></p>
         </div>
-        <!-- ✅ Show Modal + Redirect on Button Click -->
+      </div>
+      <div class="col-md-7">
+                <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7524.261174477107!2d72.80500741833366!3d19.449935785681518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a9811c98296d%3A0xc99ba7183bec3a68!2sAyappa%20Temple%20Virar%20West!5e0!3m2!1sen!2sin!4v1753689416700!5m2!1sen!2sin"
+          width="750" height="350" style="border:0;" allowfullscreen="" loading="lazy" style="margin-left:5px;"></iframe>
       </div>
     </div>
   </div>
@@ -227,6 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       });
     </script>
   <?php endif; ?>
+
 
 </body>
 

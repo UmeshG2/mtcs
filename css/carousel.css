@@ -102,7 +102,8 @@ body {
   }
 
   .carousel-item {
-    min-height: 50rem;
+    min-height: 25rem;
+     /* min-height: 25rem;   change as per image height */
   }
 
 

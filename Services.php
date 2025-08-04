@@ -2,68 +2,125 @@
 <html lang="en">
 
 <head>
-  <title>Home - Company</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact us to build your custom web or mobile app. Based in Mumbai, we deliver scalable software solutions.">
+  <title>Software Services</title>
+  <?php include 'includes/analytics.php'; ?>
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
   <?php include 'includes/header_navbar.html'; ?>
 
-  <div class="bodyContainer text-muted fs-5">
-    <h2>Our Services</h2>
-    <div class="row">
-      <div class="col-md-8">
-
-        <p>
-          We provide end-to-end software consulting services designed to help businesses innovate, scale, and succeed in
+  <div class="bodyContainer text-muted fs-6">
+    <h1>Our Services</h1>
+    <div class="row m-5">
+      <div class="col-md-6">
+        <p class=" fs-5 p-5">
+          We provide end-to-end software consulting, recruitment and outsourcing services designed to help businesses innovate, scale, and succeed in
           a digital-first world. Our expertise spans across strategy, design, development, and optimization to ensure
-          technology aligns seamlessly with your business goals.
+          technology aligns seamlessly with your business goals for various sectors.
         </p>
-        <ul>
-          <li><b>🔧 Custom Software Development</b></li>
-          <p>We design and develop tailored software solutions that address specific business challenges, streamline
-            operations, and deliver measurable results.</p>
-
-          <li><b>☁️ Cloud Consulting & Migration</b></li>
-          <p>
-            Modernize your infrastructure with our cloud consulting services. We help you select, migrate, and manage
-            cloud platforms for greater flexibility, scalability, and cost-efficiency.
-          </p>
-          <li><b>📱 Web & Mobile App Development</b></li>
-          <p>
-            From concept to launch, we build responsive web and mobile applications with great user experiences and high
-            performance across platforms.
-          </p>
-          <li><b>🧠 Software Architecture & System Integration</b></li>
-          <p>Ensure your systems work harmoniously with our architecture planning and integration services, enabling
-            seamless data flow and scalability.
-          </p>
-          <li><b>🔐 DevOps & Security Consulting</b></li>
-          <p>
-            Accelerate your development lifecycle and improve system reliability with our DevOps strategies, while
-            ensuring robust security practices are in place.
-          </p>
-          <li><b>🧾 IT Strategy & Digital Transformation</b></li>
-          <p>
-            We help organizations align IT strategies with business objectives, guiding them through digital
-            transformation to remain competitive and agile.
-          </p>
-          <li><b>📊 Data Analytics & Business Intelligence</b></li>
-          <p>
-            Unlock actionable insights from your data. We help you design and implement analytics solutions that drive
-            informed decision-making.
-          </p>
-        </ul>
       </div>
-
-      <div class="col-md-4">
-        <img src="images/working_Together.jpg" alt="Work Together" class="img-fluid rounded" style="width: 600px; height: auto;">
+      <div class="col-md-6 container-fluid center-container d-flex justify-content-center align-items-center">
+        <img src="images/service-new.jpg" alt="Industries" class="img-fluid rounded">
       </div>
     </div>
+    <!-- Services Section -->
+    <section class="py-5"> 
+      <h3 class="text-center py-4">End-to-end solutions tailored for business growth and innovation</h3>
+      <div class="container">
+        <div class="row g-4">
+
+          <!-- Website Development -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:darkcyan;">
+              <h2>🌐 Website Development</h2>
+              <p>
+                We create modern, responsive, and SEO-friendly websites that reflect your brand and deliver a great user experience. Whether it’s a landing page, portfolio, or a full business site — we’ve got you covered.
+              </p>
+              <p>
+                We craft modern, responsive, and SEO-optimized websites tailored to your business goals. From simple landing pages to complex e-commerce platforms, we deliver a seamless online presence that performs and impresses.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mobile App Development -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:seagreen;">
+              <h2>📱 Mobile App Development</h2>
+              <p>
+                Build powerful iOS and Android apps tailored to your business goals. We develop native and hybrid applications that are intuitive, scalable, and performance-driven.
+              </p>
+              <p>
+                Our team builds powerful Android and iOS applications that offer great user experiences and deliver performance. Whether it’s a startup idea or an enterprise app, we ensure your mobile solution is scalable, secure, and user-friendly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Custom Software -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:seagreen;">
+              <h3>💻 Custom Software Development</h3>
+              <p>
+                Streamline your business with software built just for you. We develop CRM systems, ERP platforms, dashboards, and more — tailored to your workflow and future growth.
+              </p>
+              <p>
+                We develop tailor-made software solutions to solve your specific business challenges. From workflow automation to business management systems, our custom software adapts to your operations — not the other way around.
+              </p>
+            </div>
+          </div>
+
+          <!-- Automation Tools -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:darkcyan;">
+              <h2>⚙️ Automation Tools</h2>
+              <p>
+                Save time and cut costs by automating repetitive tasks. From data scraping and report generation to scheduling and notification systems — we make your systems smarter.
+              </p>
+              <p>
+                Boost efficiency and reduce manual effort with smart automation tools. We create systems that streamline repetitive tasks, integrate seamlessly with your existing processes, and save valuable time and resources.
+              </p>
+            </div>
+          </div>
+
+          <!-- Recruitment Services -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:darkcyan;">
+              <h2>👥 Recruitment Services</h2>
+              <p>
+                We help you find the right talent for tech, operations, marketing, and more. Our recruitment experts source, screen, and deliver candidates aligned with your needs and culture.
+              </p>
+              <p>
+                Our recruitment team connects businesses with the right talent. We provide end-to-end hiring solutions including screening, onboarding, and workforce planning — ensuring you get skilled professionals quickly and efficiently.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outsourcing Solutions -->
+          <div class="col-md-6">
+            <div class="p-4 border rounded text-white h-100 grow-on-hover" style="background-color:seagreen;">
+              <h2>🌍 Outsourcing Solutions</h2>
+              <p>
+                Reduce overhead and increase efficiency by outsourcing non-core tasks. From software development to virtual assistance, we provide reliable experts to keep you focused.
+              </p>
+              <p>
+                Focus on your core business while we handle the rest. Our outsourcing services cover IT support, data management, customer service, and back-office operations — all delivered with professionalism, scalability, and reliability.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </div>
   </div>
   <?php include 'includes/footer.html'; ?>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

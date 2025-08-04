@@ -1,0 +1,7 @@
+[2025-08-03 14:02:56] - Unknown database 'mtc'
+[2025-08-03 14:06:46] - Unknown database 'mtc'
+[2025-08-03 14:36:05] - MySQL Error: PROCEDURE mtcs.usp_contact does not exist
+[2025-08-03 14:42:55] -  MySQL Error: PROCEDURE mtcs.usp_contact does not exist
+[2025-08-03 14:51:33] -  Contact Data Saving Error: PROCEDURE mtcs.usp_contact does not exist
+[2025-08-03 14:53:40] - Register Data Saving Error: PROCEDURE mtcs.usp_produc does not exist
+[2025-08-04 12:14:16] - Register Data Saving Error: Out of range value for column 'phone' at row 1
