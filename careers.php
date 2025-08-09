@@ -10,17 +10,26 @@
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+
+  .video-top-margin {
+      margin-top: -25px !important;  /* Example margin for mobile */
+    }
+
+  @media (max-width: 576px) {
+    .video-top-margin {
+      margin-top: 50px !important;  /* Example margin for mobile */
+    }
+  }
+</style>
 </head>
 
 <body>
   <?php include 'includes/header_navbar.html'; ?>
   <div class="bodyContainer text-muted fs-5">
-    <div class="row" style="margin-top: -25px;">
-      <div class="col-md-">
-        <!-- <div class="ratio ratio-16x9" >
-          <iframe src="videos/PeopleSnowSketing.mp4" title="YouTube video" allowfullscreen style="border: none;"></iframe>
-        </div> -->
-        <div class="ratio ratio-16x9">
+    <div class="row video-top-margin">
+      <div class="col-md-12">
+        <div class="ratio ratio-16x9 ">
           <video autoplay loop muted playsinline style="border: none; width: 100%; height: 100%;">
             <source src="videos/career-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -29,10 +38,10 @@
       </div>
     </div>
 
-    <div class="row m-5">
+    <div class="row firstrow">
       <h1>Careers</h1>
-      <div class="col-md-6">
-        <p class="p-5">
+      <div class="col-md-6 container-fluid d-flex center-container align-items-center">
+        <p>
           We believe our people are our greatest strength. Whether you're a tech expert, a strategic thinker, or a
           passionate problem-solver, we offer opportunities that let you grow, innovate, and make a real impact.
           As a dual-service leader in manpower and software consultancy, we connect talented individuals with exciting
@@ -40,11 +49,11 @@
           provide both technical excellence and top-tier professionals — and we trust our team to make that happen.
         </p>
       </div>
-      <div class="col-md-6 container-fluid center-container d-flex justify-content-center align-items-center">
+      <div class="col-md-6 container-fluid  d-flex justify-content-center align-items-center">
         <img src="images/careers.jpg" alt="Industries" class="img-fluid rounded">
       </div>
     </div>
-    <div class="row m-5">
+    <div class="row firstrow">
       <div class="col-md-12">
         <h2 class="mb-4">
           Why Work With Us?
@@ -81,7 +90,7 @@
                 <strong>Experience:</strong> 2+ years<br>
                 <strong>Skills:</strong> HTML, CSS, JavaScript, React or Angular
               </p>
-            <a class="btn btn-primary" href="frm-job-application.php" target="_blank">Apply Now</a>
+            <a class="btn btn-primary" href="frm-job-application.php" target="">Apply Now</a>
             </div>
           </div>
 
@@ -94,7 +103,7 @@
                 <strong>Experience:</strong> 1–3 years<br>
                 <strong>Skills:</strong> Flutter / React Native, API integration, Firebase
               </p>
-           <a class="btn btn-primary" href="frm-job-application.php" target="_blank">Apply Now</a>
+           <a class="btn btn-primary" href="frm-job-application.php" target="">Apply Now</a>
             </div>
           </div>
 
@@ -108,7 +117,7 @@
                 <strong>Skills:</strong> Hiring process, LinkedIn sourcing, ATS tools
               </p>
               
-               <a class="btn btn-primary" href="frm-job-application.php" target="_blank">Apply Now</a>
+               <a class="btn btn-primary" href="frm-job-application.php" target="">Apply Now</a>
               <!-- <a href="mailto:hr@yourcompany.com?subject=HR Executive Application" class="btn btn-primary">Apply Now</a> -->
             </div>
           </div>

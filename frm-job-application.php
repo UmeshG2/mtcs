@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email      = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $position   = htmlspecialchars($_POST["position"]);
     $coverLetter = htmlspecialchars($_POST["coverLetter"]);
-   
+
     $emailSubject = "";
     $emailBody = "";
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailBody .= "<b>Email:</b> $email<br>";
         $emailBody .= "<b>position:</b> $position<br>";
         $emailBody .= "<b>coverLetter:</b> $coverLetter<br>";
- 
+
         $mail->isHTML(true);
         $mail->Subject = $emailSubject;
         $mail->Body    = $emailBody;
@@ -59,90 +59,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-    <title>Home - Company</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="New website and mobile app development">
+    <title>Job Application</title>
     <?php include 'includes/analytics.php'; ?>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
-  <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
     <?php include 'includes/header_navbar.html'; ?>
     <div class="bodyContainer text-muted fs-5">
-    <h1> Apply for a Position</h1>
-    <!-- Application Form -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
+        <h1> Apply for a position</h1>
+        <!-- Application Form -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
 
-                    <!-- <form action="submit-application.php" method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow-sm bg-light"> -->
-                    <form action="" method="POST" class="border p-4 rounded shadow-sm bg-light">
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label">Full Name *</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName" required>
-                        </div>
+                        <!-- <form action="submit-application.php" method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow-sm bg-light"> -->
+                        <form action="" method="POST" class="border p-4 rounded shadow-sm bg-light">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number *</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="position" class="form-label">Position Applying For *</label>
-                            <input type="text" class="form-control" id="position" name="position" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="position" class="form-label">Position Applying For *</label>
+                                <input type="text" class="form-control" id="position" name="position" required>
+                            </div>
 
-                        <!-- <div class="mb-3">
+                            <!-- <div class="mb-3">
                             <label for="resume" class="form-label">Upload Resume (PDF/DOC) *</label>
                             <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                        </div> -->
+                            </div> -->
 
-                        <div class="mb-3">
-                            <label for="coverLetter" class="form-label">Cover Letter</label>
-                            <textarea class="form-control" id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us about yourself..."></textarea>
-                        </div>
+                            <div class="mb-3">
+                                <label for="coverLetter" class="form-label">Cover Letter</label>
+                                <textarea class="form-control" id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us about yourself..."></textarea>
+                            </div>
 
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="consent" required>
-                            <label class="form-check-label" for="consent">I consent to the processing of my data for recruitment purposes.</label>
-                        </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="consent" required>
+                                <label class="form-check-label" for="consent">I consent to the processing of my data for recruitment purposes.</label>
+                            </div>
 
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary px-5">Submit Application</button>
-                        </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary px-5">Submit Application</button>
+                            </div>
 
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ✅ Bootstrap Modal -->
-      <?php include 'includes/modal-popup.html'; ?>
-    <!-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title" id="successModalLabel">Submission Successful</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    Your form has been submitted successfully!
-                </div>
-                <div class="modal-footer">
-                    <button id="redirectBtn" class="btn btn-success">OK</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- ✅ Show Modal + Redirect on Button Click -->
+        </section>
+        <!-- ✅ Bootstrap Modal -->
+        <?php include 'includes/modal-popup.html'; ?>
+        <!-- ✅ Show Modal + Redirect on Button Click -->
     </div>
 
     <?php include 'includes/footer.html'; ?>

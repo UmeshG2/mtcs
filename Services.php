@@ -15,17 +15,17 @@
 <body>
   <?php include 'includes/header_navbar.html'; ?>
 
-  <div class="bodyContainer text-muted fs-6">
+  <div class="bodyContainer text-muted fs-6 container-fluid">
     <h1>Our Services</h1>
-    <div class="row m-5">
-      <div class="col-md-6">
-        <p class=" fs-5 p-5">
+    <div class="row firstrow">
+      <div class="col-md-6 d-flex center-container align-items-center">
+        <p class=" fs-5">
           We provide end-to-end software consulting, recruitment and outsourcing services designed to help businesses innovate, scale, and succeed in
           a digital-first world. Our expertise spans across strategy, design, development, and optimization to ensure
           technology aligns seamlessly with your business goals for various sectors.
         </p>
       </div>
-      <div class="col-md-6 container-fluid center-container d-flex justify-content-center align-items-center">
+      <div class="col-md-6 center-container d-flex justify-content-center align-items-center">
         <img src="images/service-new.jpg" alt="Industries" class="img-fluid rounded">
       </div>
     </div>

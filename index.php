@@ -15,7 +15,7 @@
 
 <body>
   <?php include 'includes/header_navbar.html'; ?>
-  <div class="home-bodyContainer  fs-5">
+  <div class="home-bodyContainer fs-5 container-fluid">
 
     <!-- Carousel Start -->
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">

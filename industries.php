@@ -15,18 +15,18 @@
 
 <body>
   <?php include 'includes/header_navbar.html'; ?>
-  <div class="bodyContainer text-muted fs-6">
+  <div class="bodyContainer text-muted fs-6 container-fluid ">
     <h1>Industries We Serve</h1>
     <!-- <h6></h6> -->
-    <div class="row m-5">
-      <div class="col-md-6">
-        <p class=" fs-5 p-5">
+    <div class="row firstrow">
+      <div class="col-md-6 d-flex center-container align-items-center">
+        <p class="fs-5">
           We serve combine deep industry knowledge with technology and talent solutions to help organizations thrive in
           an evolving landscape. Whether you need skilled professionals or tailored software solutions, our dual
           expertise in manpower and technology ensures impactful results across sectors.
         </p>
       </div>
-      <div class="col-md-6 container-fluid center-container d-flex justify-content-center align-items-center">
+      <div class="col-md-6 center-container d-flex justify-content-center align-items-center">
         <img src="images/industry/industry.jpg" alt="Industries" class="img-fluid rounded">
       </div>
     </div>
