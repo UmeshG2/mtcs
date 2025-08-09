@@ -63,5 +63,9 @@ h1{
       transform: scale(1.05); /* Increase to 1.1 for stronger zoom */
     }
 
+     .hover-effect:hover {
+      background-color: royalblue; /* Bootstrap primary color */
+      cursor: pointer;
+    }
 
    
